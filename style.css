@@ -442,95 +442,70 @@ h2::after {
     line-height: 1.6;
 }
 
-/* Contact Section */
-#contact {
-    background: white;
+/* Form Validation Styles */
+.error-message {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 1rem;
+    display: none;
 }
 
-.contact-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 3rem;
-}
-
-.contact-info {
-    background: linear-gradient(135deg, #f8f9fa, #e8f5e8);
-    padding: 2rem;
-    border-radius: 15px;
-    border: 1px solid #e0e0e0;
-}
-
-.contact-item {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.contact-item:last-child {
-    border-bottom: none;
-}
-
-.contact-item strong {
-    color: #2c5530;
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-}
-
-.contact-form {
-    background: #f8f9fa;
-    padding: 2rem;
-    border-radius: 15px;
-    border: 1px solid #e0e0e0;
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #c3e6cb;
+    margin-bottom: 1rem;
+    display: none;
 }
 
 .form-group {
+    position: relative;
     margin-bottom: 1.5rem;
 }
 
-.form-group label {
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.error-text {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.form-group.error .error-text {
     display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: #2c5530;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 1rem;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-    background: white;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #66bb6a;
-    box-shadow: 0 0 0 3px rgba(102, 187, 106, 0.1);
 }
 
 .contact-form button {
-    background: linear-gradient(135deg, #66bb6a, #4a7c59);
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
-.contact-form button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 187, 106, 0.3);
+.btn-loading {
+    display: none;
+}
+
+.contact-form button.loading .btn-text {
+    display: none;
+}
+
+.contact-form button.loading .btn-loading {
+    display: inline;
+}
+
+.contact-form button.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
 /* Footer */
