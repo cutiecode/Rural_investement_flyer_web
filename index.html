@@ -428,7 +428,7 @@
 
     <script>
 // Initialize EmailJS
-emailjs.init("YOUR_PUBLIC_KEY"); // On va configurer ça après
+emailjs.init("kc16i_g1K5LfW6-0P"); // On va configurer ça après
 
 // Navbar Toggle Functionality
 const navbarToggle = document.getElementById('navbarToggle');
@@ -537,7 +537,7 @@ contactForm.addEventListener('submit', function(e) {
     });
     
     if (!isValid) {
-        errorMessage.textContent = '❌ Veuillez corriger les erreurs dans le formulaire.';
+        errorMessage.textContent = ' Veuillez corriger les erreurs dans le formulaire.';
         errorMessage.style.display = 'block';
         return;
     }
@@ -557,7 +557,7 @@ contactForm.addEventListener('submit', function(e) {
     };
     
     // Send email via EmailJS
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+    emailjs.send('service_n87l7eb', 'template_6k0wmn2', templateParams)
         .then(function(response) {
             console.log('SUCCESS!', response.status, response.text);
             successMessage.style.display = 'block';
