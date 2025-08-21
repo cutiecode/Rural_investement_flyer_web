@@ -1,0 +1,566 @@
+/* Rural Investment and Consulting - Responsive Styles */
+
+/* ===================================
+   MOBILE FIRST APPROACH
+   ================================== */
+
+/* Extra Small Devices (phones, 320px and up) */
+@media (min-width: 320px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero h2 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    .hero > p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+    
+    .stat {
+        padding: 1.5rem;
+    }
+    
+    .stat h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Small Devices (phones, 480px and up) */
+@media (min-width: 480px) {
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+    
+    .hero > p {
+        font-size: 1.1rem;
+    }
+    
+    .company-info h1 {
+        font-size: 1.6rem;
+    }
+    
+    .service-category {
+        padding: 1.5rem;
+    }
+}
+
+/* Medium Small Devices (large phones, 576px and up) */
+@media (min-width: 576px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav li {
+        margin: 0.5rem;
+    }
+    
+    .hero-stats {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Medium Devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    main {
+        margin-top: 180px;
+    }
+    
+    .hero h2 {
+        font-size: 2.8rem;
+    }
+    
+    .hero > p {
+        font-size: 1.2rem;
+    }
+    
+    .company-info h1 {
+        font-size: 1.8rem;
+    }
+    
+    nav ul {
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    nav li {
+        margin: 0 0.5rem;
+    }
+    
+    .hero-stats {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 900px;
+    }
+    
+    .dept-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+    
+    .org-level {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .org-box {
+        min-width: 180px;
+    }
+    
+    section {
+        padding: 3rem 0;
+    }
+    
+    h2 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Large Devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    main {
+        margin-top: 160px;
+    }
+    
+    .container {
+        max-width: 960px;
+    }
+    
+    .hero h2 {
+        font-size: 3rem;
+    }
+    
+    .hero > p {
+        font-size: 1.3rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .service-category {
+        padding: 2rem;
+    }
+    
+    .references-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .org-chart {
+        padding: 3rem;
+    }
+    
+    .org-box {
+        min-width: 200px;
+        padding: 1.2rem 2rem;
+    }
+    
+    h2 {
+        font-size: 2.5rem;
+    }
+    
+    section {
+        padding: 4rem 0;
+    }
+}
+
+/* Extra Large Devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+    
+    .hero h2 {
+        font-size: 3.5rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .references-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr 1.2fr;
+    }
+}
+
+/* Ultra Wide Screens (1400px and up) */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+    
+    .hero {
+        padding: 8rem 0;
+    }
+    
+    .hero h2 {
+        font-size: 4rem;
+    }
+    
+    section {
+        padding: 5rem 0;
+    }
+}
+
+/* ===================================
+   SPECIFIC RESPONSIVE ADJUSTMENTS
+   ================================== */
+
+/* Header Responsive */
+@media (max-width: 767px) {
+    header {
+        padding: 0.5rem 0;
+    }
+    
+    .logo-container {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .logo-container img {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .company-info h1 {
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .company-info p {
+        font-size: 0.8rem;
+    }
+    
+    nav {
+        padding: 0.3rem 0;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+    
+    nav a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    main {
+        margin-top: 220px;
+    }
+}
+
+/* Tables Responsive */
+@media (max-width: 768px) {
+    .admin-info table,
+    .equipments table {
+        font-size: 0.9rem;
+    }
+    
+    .admin-info td,
+    .equipments td,
+    .equipments th {
+        padding: 0.8rem 0.5rem;
+    }
+    
+    .admin-info td:first-child {
+        width: 40%;
+    }
+}
+
+@media (max-width: 576px) {
+    .admin-info table,
+    .equipments table {
+        font-size: 0.8rem;
+    }
+    
+    .admin-info td,
+    .equipments td,
+    .equipments th {
+        padding: 0.6rem 0.3rem;
+    }
+    
+    /* Stack table on very small screens */
+    .admin-info table,
+    .equipments table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* Form Responsive */
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form,
+    .contact-info {
+        padding: 1.5rem;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .contact-form button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Organization Chart Responsive */
+@media (max-width: 992px) {
+    .org-chart {
+        padding: 1.5rem;
+    }
+    
+    .org-level {
+        gap: 1rem;
+    }
+    
+    .org-box {
+        min-width: 160px;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .org-level {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .org-box {
+        min-width: 200px;
+        max-width: 280px;
+        width: 100%;
+    }
+}
+
+/* Footer Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    footer {
+        padding: 2rem 0 1rem;
+    }
+}
+
+/* Typography Responsive */
+@media (max-width: 576px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    h4 {
+        font-size: 1.1rem;
+    }
+    
+    .company-description {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    .service-category h3 {
+        font-size: 1.2rem;
+    }
+    
+    .reference-item h4 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Images and Media Responsive */
+@media (max-width: 768px) {
+    .logo-container img {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* Spacing Adjustments */
+@media (max-width: 576px) {
+    section {
+        padding: 2rem 0;
+    }
+    
+    .hero {
+        padding: 4rem 0;
+    }
+    
+    .departments,
+    .contact-form,
+    .contact-info {
+        padding: 1.5rem;
+    }
+    
+    .service-category {
+        padding: 1.5rem;
+    }
+    
+    .reference-item {
+        padding: 1.5rem;
+    }
+}
+
+/* Landscape Phone Orientation */
+@media (max-width: 896px) and (orientation: landscape) {
+    main {
+        margin-top: 140px;
+    }
+    
+    .hero {
+        padding: 3rem 0;
+    }
+    
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+    
+    section {
+        padding: 2.5rem 0;
+    }
+}
+
+/* Print Responsive */
+@media print {
+    header {
+        position: static !important;
+        box-shadow: none;
+    }
+    
+    main {
+        margin-top: 0 !important;
+    }
+    
+    .contact-form,
+    nav,
+    .hero-stats {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+        color: #000;
+        background: white;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    section {
+        page-break-inside: avoid;
+        padding: 1rem 0;
+    }
+    
+    h2 {
+        color: #000;
+        font-size: 18pt;
+    }
+    
+    .service-category,
+    .reference-item,
+    .department {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+}
+
+/* High DPI / Retina Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo-container img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .stat:hover,
+    .department:hover,
+    .service-category:hover,
+    .reference-item:hover,
+    .org-box:hover {
+        transform: none;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #1a1a1a;
+        color: #e0e0e0;
+    }
+    
+    #presentation,
+    #organisation,
+    #contact {
+        background: #2a2a2a;
+    }
+    
+    .service-category,
+    .reference-item,
+    .department,
+    .contact-form,
+    .admin-info table {
+        background: #333;
+        color: #e0e0e0;
+    }
+    
+    .admin-info td:first-child {
+        background: #404040;
+    }
+}
