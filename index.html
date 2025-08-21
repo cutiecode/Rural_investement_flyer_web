@@ -344,12 +344,12 @@
                         
                         <div class="form-group">
                             <label for="phone">Téléphone</label>
-                            <input type="tel" id="phone" name="phone">
+                            <input type="tel" id="phone" name="phone" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="company">Entreprise/Organisation</label>
-                            <input type="text" id="company" name="company">
+                            <input type="text" id="company" name="company" required>
                         </div>
                         
                         <div class="form-group">
@@ -434,11 +434,8 @@ ${data.message}
             `;
             
             // Ouverture du client email par défaut
-            const mailtoLink = `mailto:Ruralinvestment01@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            const mailtoLink = `mailto:naotivo00@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             window.location.href = mailtoLink;
-            
-            // Message de confirmation
-            alert('Votre client email va s\'ouvrir avec le message pré-rempli. Vous pourrez l\'envoyer directement.');
             
             // Réinitialisation du formulaire
             this.reset();
