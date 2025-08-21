@@ -417,6 +417,31 @@
     </footer>
 
     <script>
+
+        // Navbar Toggle Functionality
+const navbarToggle = document.getElementById('navbarToggle');
+const navbarMenu = document.getElementById('navbarMenu');
+
+navbarToggle.addEventListener('click', function() {
+    navbarMenu.classList.toggle('active');
+    navbarToggle.classList.toggle('active');
+});
+
+// Close navbar when clicking on a link
+document.querySelectorAll('.navbar-menu a').forEach(link => {
+    link.addEventListener('click', function() {
+        navbarMenu.classList.remove('active');
+        navbarToggle.classList.remove('active');
+    });
+});
+
+// Close navbar when clicking outside
+document.addEventListener('click', function(event) {
+    if (!navbarToggle.contains(event.target) && !navbarMenu.contains(event.target)) {
+        navbarMenu.classList.remove('active');
+        navbarToggle.classList.remove('active');
+    }
+});
         // JavaScript pour le formulaire de contact
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
