@@ -427,73 +427,167 @@
     </footer>
 
     <script>
+// Initialize EmailJS
+emailjs.init("YOUR_PUBLIC_KEY"); // On va configurer ça après
 
-        // Navbar Toggle Functionality
+// Navbar Toggle Functionality
 const navbarToggle = document.getElementById('navbarToggle');
 const navbarMenu = document.getElementById('navbarMenu');
 
-navbarToggle.addEventListener('click', function() {
-    navbarMenu.classList.toggle('active');
-    navbarToggle.classList.toggle('active');
-});
+if (navbarToggle && navbarMenu) {
+    navbarToggle.addEventListener('click', function() {
+        navbarMenu.classList.toggle('active');
+        navbarToggle.classList.toggle('active');
+    });
 
-// Close navbar when clicking on a link
-document.querySelectorAll('.navbar-menu a').forEach(link => {
-    link.addEventListener('click', function() {
-        navbarMenu.classList.remove('active');
-        navbarToggle.classList.remove('active');
+    // Close navbar when clicking on a link
+    document.querySelectorAll('.navbar-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            navbarMenu.classList.remove('active');
+            navbarToggle.classList.remove('active');
+        });
+    });
+
+    // Close navbar when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!navbarToggle.contains(event.target) && !navbarMenu.contains(event.target)) {
+            navbarMenu.classList.remove('active');
+            navbarToggle.classList.remove('active');
+        }
+    });
+}
+
+// Form Validation and Submission
+const contactForm = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
+const successMessage = document.getElementById('success-message');
+const errorMessage = document.getElementById('error-message');
+
+// Validation functions
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+function validatePhone(phone) {
+    const re = /^[\+]?[0-9\s\-\(\)]{8,}$/;
+    return re.test(phone.trim());
+}
+
+function validateField(field) {
+    const formGroup = field.closest('.form-group');
+    const value = field.value.trim();
+    
+    // Remove previous error
+    formGroup.classList.remove('error');
+    
+    // Check if required field is empty
+    if (field.hasAttribute('required') && !value) {
+        formGroup.classList.add('error');
+        return false;
+    }
+    
+    // Email validation
+    if (field.type === 'email' && value && !validateEmail(value)) {
+        formGroup.classList.add('error');
+        return false;
+    }
+    
+    // Phone validation
+    if (field.type === 'tel' && value && !validatePhone(value)) {
+        formGroup.classList.add('error');
+        return false;
+    }
+    
+    // Select validation
+    if (field.tagName === 'SELECT' && !value) {
+        formGroup.classList.add('error');
+        return false;
+    }
+    
+    return true;
+}
+
+// Real-time validation
+document.querySelectorAll('#contactForm input, #contactForm select, #contactForm textarea').forEach(field => {
+    field.addEventListener('blur', () => validateField(field));
+    field.addEventListener('input', () => {
+        if (field.closest('.form-group').classList.contains('error')) {
+            validateField(field);
+        }
     });
 });
 
-// Close navbar when clicking outside
-document.addEventListener('click', function(event) {
-    if (!navbarToggle.contains(event.target) && !navbarMenu.contains(event.target)) {
-        navbarMenu.classList.remove('active');
-        navbarToggle.classList.remove('active');
+// Form submission
+contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Hide previous messages
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'none';
+    
+    // Validate all fields
+    let isValid = true;
+    const formData = new FormData(contactForm);
+    
+    document.querySelectorAll('#contactForm input, #contactForm select, #contactForm textarea').forEach(field => {
+        if (!validateField(field)) {
+            isValid = false;
+        }
+    });
+    
+    if (!isValid) {
+        errorMessage.textContent = '❌ Veuillez corriger les erreurs dans le formulaire.';
+        errorMessage.style.display = 'block';
+        return;
     }
+    
+    // Show loading state
+    submitBtn.classList.add('loading');
+    
+    // Prepare email data
+    const templateParams = {
+        from_name: formData.get('from_name'),
+        from_email: formData.get('from_email'),
+        phone: formData.get('phone'),
+        company: formData.get('company'),
+        service: formData.get('service'),
+        message: formData.get('message'),
+        to_email: 'Ruralinvestment01@gmail.com'
+    };
+    
+    // Send email via EmailJS
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            successMessage.style.display = 'block';
+            contactForm.reset();
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+        .catch(function(error) {
+            console.log('FAILED...', error);
+            errorMessage.style.display = 'block';
+        })
+        .finally(function() {
+            submitBtn.classList.remove('loading');
+        });
 });
-        // JavaScript pour le formulaire de contact
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Récupération des données du formulaire
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Construction de l'email
-            const subject = `Nouvelle demande de contact - ${data.service || 'Service non spécifié'}`;
-            const body = `
-Nom: ${data.name}
-Email: ${data.email}
-Téléphone: ${data.phone || 'Non renseigné'}
-Entreprise: ${data.company || 'Non renseignée'}
-Service demandé: ${data.service || 'Non spécifié'}
 
-Message:
-${data.message}
-            `;
-            
-            // Ouverture du client email par défaut
-            const mailtoLink = `mailto:naotivo00@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            window.location.href = mailtoLink;
-            
-            // Réinitialisation du formulaire
-            this.reset();
-        });
-        
-        // Navigation fluide
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+// Navigation fluide
+document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
-        });
+        }
+    });
+});
     </script>
 </body>
 </html>
